@@ -2,13 +2,14 @@ import { commands as Commands, ExtensionContext } from 'vscode'
 import { pnpmInstallPackages } from './install'
 import { terminal } from './run-command'
 import { outputChannel } from './output'
+import { pnpmAddPackages, pnpmAddPackage, pnpmAddPackageDev } from './add'
 
 export const activate = function (context: ExtensionContext) {
   const disposables = [
     Commands.registerCommand('pnpm-script.installPackages', pnpmInstallPackages),
-    // Commands.registerCommand('pnpm-script.addPackages', pnpmAddPackages),
-    // Commands.registerCommand('pnpm-script.addPackage', pnpmAddPackage),
-    // Commands.registerCommand('pnpm-script.addPackageDev', pnpmAddPackageDev),
+    Commands.registerCommand('pnpm-script.addPackages', pnpmAddPackages),
+    Commands.registerCommand('pnpm-script.addPackage', pnpmAddPackage),
+    Commands.registerCommand('pnpm-script.addPackageDev', pnpmAddPackageDev),
     // Commands.registerCommand('pnpm-script.runScript', pnpmRunScript),
     // Commands.registerCommand('pnpm-script.build', pnpmBuild),
     // Commands.registerCommand('pnpm-script.runScriptLast', pnpmRunLastScript),

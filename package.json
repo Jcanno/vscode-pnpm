@@ -7,6 +7,19 @@
 	"engines": {
 		"vscode": "^1.63.0"
 	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Jcanno/vscode-pnpm/issues"
+	},
+	"homepage": "https://github.com/Jcanno/vscode-pnpm/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Jcanno/vscode-pnpm.git"
+	},
+	"keywords": [
+		"pnpm",
+		"commands"
+	],
 	"categories": [
 		"Other"
 	],

@@ -1,0 +1,231 @@
+{
+	"name": "vscode-pnpm",
+	"displayName": "pnpm",
+	"description": "Pnpm commands for VSCode",
+	"publisher": "Jacano",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.63.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:pnpm-script.installPackages",
+		"onCommand:pnpm-script.addPackages",
+		"onCommand:pnpm-script.addPackage",
+		"onCommand:pnpm-script.addPackageDev",
+		"onCommand:pnpm-script.runScript",
+		"onCommand:pnpm-script.runScriptLast",
+		"onCommand:pnpm-script.init",
+		"onCommand:pnpm-script.outdated",
+		"onCommand:pnpm-script.removePackage",
+		"onCommand:pnpm-script.publish",
+		"onCommand:pnpm-script.raw",
+		"onCommand:pnpm-script.terminate",
+		"onCommand:pnpm-script.start",
+		"onCommand:pnpm-script.build",
+		"onCommand:pnpm-script.test"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "pnpm-script.start",
+				"title": "Start",
+				"category": "Pnpm",
+				"icon": "./assets/start.png"
+			},
+			{
+				"command": "pnpm-script.test",
+				"title": "Test",
+				"category": "Pnpm",
+				"icon": "./assets/test.png"
+			},
+			{
+				"command": "pnpm-script.terminate",
+				"title": "Terminate Running Pnpm Script",
+				"category": "Pnpm"
+			},
+			{
+				"command": "pnpm-script.installPackages",
+				"title": "Install Pnpm Packages",
+				"category": "Pnpm",
+				"icon": "./assets/install.png"
+			},
+			{
+				"command": "pnpm-script.addPackage",
+				"title": "Add and Save Dependency",
+				"category": "Pnpm"
+			},
+			{
+				"command": "pnpm-script.addPackageDev",
+				"title": "Add and Save dev. Dependency",
+				"category": "Pnpm"
+			},
+			{
+				"command": "pnpm-script.runScript",
+				"title": "Run Pnpm Script",
+				"category": "Pnpm"
+			},
+			{
+				"command": "pnpm-script.runScriptLast",
+				"title": "Run Last Pnpm Script",
+				"category": "Pnpm"
+			},
+			{
+				"command": "pnpm-script.init",
+				"title": "Initialize Pnpm Package",
+				"category": "Pnpm"
+			},
+			{
+				"command": "pnpm-script.outdated",
+				"title": "Run outdated",
+				"category": "Pnpm"
+			},
+			{
+				"command": "pnpm-script.removePackage",
+				"title": "Uninstall Dependency",
+				"category": "Pnpm"
+			},
+			{
+				"command": "pnpm-script.build",
+				"title": "Run Build",
+				"category": "Pnpm",
+				"icon": "./assets/build.png"
+			},
+			{
+				"command": "pnpm-script.publish",
+				"title": "Publish Package",
+				"category": "Pnpm"
+			},
+			{
+				"command": "pnpm-script.raw",
+				"title": "Raw Pnpm Command",
+				"category": "Pnpm"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "resourceFilename == 'package.json'",
+					"command": "pnpm-script.installPackages",
+					"group": "navigation@+1"
+				}
+			],
+			"touchBar": [
+				{
+					"command": "pnpm-script.installPackages",
+					"group": "navigation@+1",
+					"when": "config.pnpm.enableTouchbar"
+				},
+				{
+					"command": "pnpm-script.build",
+					"group": "navigation@+4",
+					"when": "config.pnpm.enableTouchbar"
+				},
+				{
+					"command": "pnpm-script.test",
+					"group": "navigation@+3",
+					"when": "config.pnpm.enableTouchbar"
+				},
+				{
+					"command": "pnpm-script.start",
+					"group": "navigation@+2",
+					"when": "config.pnpm.enableTouchbar"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"command": "pnpm-script.runScript",
+				"key": "Ctrl+R Shift+R",
+				"mac": "Cmd+R Shift+R",
+				"when": "!terminalFocus"
+			},
+			{
+				"command": "pnpm-script.runScriptLast",
+				"key": "Ctrl+R R",
+				"mac": "Cmd+R R",
+				"when": "!terminalFocus"
+			},
+			{
+				"command": "pnpm-script.terminate",
+				"key": "Ctrl+R Shift+X",
+				"mac": "Cmd+R Shift+X",
+				"when": "!terminalFocus"
+			},
+			{
+				"command": "pnpm-script.test",
+				"key": "Ctrl+R T",
+				"mac": "Cmd+R T",
+				"when": "!terminalFocus"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "pnpm (VSCode Pnpm)",
+			"properties": {
+				"pnpm.runInTerminal": {
+					"type": "boolean",
+					"scope": "resource",
+					"default": true,
+					"description": "Run pnpm commands in a terminal, otherwise shows the output in the output panel"
+				},
+				"pnpm.bin": {
+					"type": "string",
+					"default": "pnpm",
+					"description": "pnpm bin name"
+				},
+				"pnpm.packageJson": {
+					"type": "string",
+					"scope": "resource",
+					"default": "package.json",
+					"description": "Default package json path. relative to current project root"
+				},
+				"pnpm.dontHideOutputOnSuccess": {
+					"type": "boolean",
+					"scope": "resource",
+					"default": true,
+					"description": "Keep the output panel visible when pnpm execution is successful (no effect with runInTerminal)"
+				},
+				"pnpm.enableTouchbar": {
+					"type": "boolean",
+					"scope": "resource",
+					"default": false,
+					"description": "Enable pnpm commands in the macOS touchbar."
+				}
+			}
+		}
+	},
+	"main": "./dist/extension.js",
+	"scripts": {
+		"vscode:prepublish": "yarn run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.63.0",
+		"@typescript-eslint/eslint-plugin": "^5.9.1",
+		"@typescript-eslint/parser": "^5.9.1",
+		"@vscode/test-electron": "^2.0.3",
+		"eslint": "^8.6.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"glob": "^7.2.0",
+		"mocha": "^9.1.3",
+		"prettier": "^2.5.1",
+		"ts-loader": "^9.2.6",
+		"typescript": "^4.5.4",
+		"webpack": "^5.66.0",
+		"webpack-cli": "^4.9.1"
+	}
+}

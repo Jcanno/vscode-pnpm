@@ -18,7 +18,6 @@
 		"onCommand:pnpm-script.runScript",
 		"onCommand:pnpm-script.runScriptLast",
 		"onCommand:pnpm-script.init",
-		"onCommand:pnpm-script.outdated",
 		"onCommand:pnpm-script.removePackage",
 		"onCommand:pnpm-script.publish",
 		"onCommand:pnpm-script.raw",
@@ -28,8 +27,7 @@
 		"onCommand:pnpm-script.test"
 	],
 	"contributes": {
-		"commands": [
-			{
+		"commands": [{
 				"command": "pnpm-script.start",
 				"title": "Start",
 				"category": "Pnpm",
@@ -78,11 +76,6 @@
 				"category": "Pnpm"
 			},
 			{
-				"command": "pnpm-script.outdated",
-				"title": "Run outdated",
-				"category": "Pnpm"
-			},
-			{
 				"command": "pnpm-script.removePackage",
 				"title": "Uninstall Dependency",
 				"category": "Pnpm"
@@ -105,15 +98,12 @@
 			}
 		],
 		"menus": {
-			"explorer/context": [
-				{
-					"when": "resourceFilename == 'package.json'",
-					"command": "pnpm-script.installPackages",
-					"group": "navigation@+1"
-				}
-			],
-			"touchBar": [
-				{
+			"explorer/context": [{
+				"when": "resourceFilename == 'package.json'",
+				"command": "pnpm-script.installPackages",
+				"group": "navigation@+1"
+			}],
+			"touchBar": [{
 					"command": "pnpm-script.installPackages",
 					"group": "navigation@+1",
 					"when": "config.pnpm.enableTouchbar"
@@ -135,8 +125,7 @@
 				}
 			]
 		},
-		"keybindings": [
-			{
+		"keybindings": [{
 				"command": "pnpm-script.runScript",
 				"key": "Ctrl+R Shift+R",
 				"mac": "Cmd+R Shift+R",

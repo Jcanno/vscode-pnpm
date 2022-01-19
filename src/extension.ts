@@ -7,6 +7,8 @@ import { pnpmRunScript, pnpmBuild, pnpmRunLastScript, pnpmStart, pnpmTest } from
 import { pnpmInit } from './init'
 import { pnpmRemovePackage } from './remove'
 import { pnpmPublish } from './publish'
+import { pnpmRawCommand } from './raw'
+import { pnpmTerminate } from './terminate'
 
 export const activate = function (context: ExtensionContext) {
   const disposables = [
@@ -22,8 +24,8 @@ export const activate = function (context: ExtensionContext) {
     Commands.registerCommand('pnpm-script.init', pnpmInit),
     Commands.registerCommand('pnpm-script.removePackage', pnpmRemovePackage),
     Commands.registerCommand('pnpm-script.publish', pnpmPublish),
-    // Commands.registerCommand('pnpm-script.raw', pnpmRawCommand),
-    // Commands.registerCommand('pnpm-script.terminate', pnpmTerminate),
+    Commands.registerCommand('pnpm-script.raw', pnpmRawCommand),
+    Commands.registerCommand('pnpm-script.terminate', pnpmTerminate),
   ]
 
   context.subscriptions.push(...disposables, outputChannel)

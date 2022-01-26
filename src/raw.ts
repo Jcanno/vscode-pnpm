@@ -11,7 +11,7 @@ export async function pnpmRawCommand() {
   }
 
   Window.showInputBox({
-    prompt: 'yarn command',
+    prompt: 'pnpm command',
     placeHolder: 'install lodash@latest, ...',
   }).then((value) => {
     if (!value) {

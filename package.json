@@ -3,7 +3,7 @@
 	"displayName": "pnpm",
 	"description": "Pnpm commands for VSCode",
 	"publisher": "Jacano",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"icon": "pnpm.png",
 	"engines": {
 		"vscode": "^1.63.0"
@@ -139,31 +139,6 @@
 				}
 			]
 		},
-		"keybindings": [{
-				"command": "pnpm-script.runScript",
-				"key": "Ctrl+R Shift+R",
-				"mac": "Cmd+R Shift+R",
-				"when": "!terminalFocus"
-			},
-			{
-				"command": "pnpm-script.runScriptLast",
-				"key": "Ctrl+R R",
-				"mac": "Cmd+R R",
-				"when": "!terminalFocus"
-			},
-			{
-				"command": "pnpm-script.terminate",
-				"key": "Ctrl+R Shift+X",
-				"mac": "Cmd+R Shift+X",
-				"when": "!terminalFocus"
-			},
-			{
-				"command": "pnpm-script.test",
-				"key": "Ctrl+R T",
-				"mac": "Cmd+R T",
-				"when": "!terminalFocus"
-			}
-		],
 		"configuration": {
 			"type": "object",
 			"title": "pnpm (VSCode Pnpm)",
@@ -202,13 +177,13 @@
 	},
 	"main": "./dist/extension.js",
 	"scripts": {
-		"vscode:prepublish": "yarn run package",
+		"vscode:prepublish": "pnpm run package",
 		"compile": "webpack",
 		"watch": "webpack --watch",
 		"package": "webpack --mode production --devtool hidden-source-map",
 		"compile-tests": "tsc -p . --outDir out",
 		"watch-tests": "tsc -p . -w --outDir out",
-		"pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+		"pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
 		"lint": "eslint src --ext ts",
 		"test": "node ./out/test/runTest.js"
 	},
